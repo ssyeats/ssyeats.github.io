@@ -10,7 +10,7 @@
     
     
     
-    <title>Hello World | ssyeats&#39;blog</title>
+    <title>ssyeats&#39;blog</title>
     <!-- inject:style -->
     <link href="/css/style.css" rel="stylesheet" type="text/css">
     <!-- endinject -->
@@ -161,13 +161,13 @@
     <div class="cube-content">
         <div class="cube-left">
             <div class="cube-article">
-    <h1 class="title">Hello World</h1>
+    <h1 class="title"></h1>
     
     <div class="cube-article-header">
         <div class="cube-article-date">
             <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
             <!-- moment.js对象 -->
-            2018-08-01
+            2018-09-01
         </div>
         <div class="cube-article-tags">
     <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
@@ -177,15 +177,32 @@
     
     <div class="cube-article-content cube-markdown">
         
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <p>安恒7月赛部分题writeup</p>
+<p>web1  order</p>
+<p>这是一题关于order的注入，很简单的哦！同学们尝试下注入吧！</p>
+<p>正好最近在学sql注入，感觉题目还是挺友好的，用burpsuit抓包</p>
+<p>GET /?order=name&amp;button=submit HTTP/1.1<br>Host: 101.71.29.5:10004<br>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:56.0) Gecko/20100101 Firefox/56.0<br>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,<em>/</em>;q=0.8<br>Accept-Language: zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3<br>Accept-Encoding: gzip, deflate<br>Referer: <a href="http://101.71.29.5:10004/?order=id&amp;button=submit" target="_blank" rel="noopener">http://101.71.29.5:10004/?order=id&amp;button=submit</a><br>Cookie: Hm_lvt_d532469474a471feb9f849e2bf8fb4c1=1532150292; Hm_lpvt_d532469474a471feb9f849e2bf8fb4c1=1532150313<br>Connection: keep-alive<br>Upgrade-Insecure-Requests: 1</p>
+<p>判断应该是GET型注入，直接上sqlmap吧，在name后加“*”，用sqlmap跑一下，得到结果</p>
+<p>flag{666_0rdorby_you_can}</p>
+<p>web2 就这么直接</p>
+<p>源代码都给你了 你想想办法吧！</p>
+<p>既然提示说给了源码，那就找找源码吧，进入靶机，右击查看源代码，发现hint.php,访问它，看到源代码，看不懂！！！和大佬学习了一下，大概意思是输入key,用key计算resault，然后输出，但是这个输出由于srand函数会很快地变化，然后测试一下，随便输入一个数，然后看源代码，发现后边给了答案，这应该就是resault的值，尝试输回去，发现不对，说明srand函数使答案的有效时间很短，嗯，是时候上脚本了</p>
+<p>import requests<br>import re<br>def get():<br>        url=’<a href="http://101.71.29.5:10003/flag.php&#39;" target="_blank" rel="noopener">http://101.71.29.5:10003/flag.php&#39;</a><br>        data={<br>        ‘answer’:’983f602ccd65e33d496fa6ebbdd7dad4’<br>    }<br>        r=requests.post(url,data=data)<br>        f = open(“web2.txt”, ‘w’)<br>        f.write(r.text)<br>        f.close()<br>        print(“get success!”)<br>def getTitle(booktext):<br>        return re.search( r’<!--(.+?)-->‘, booktext, re.M|re.I).group(1)<br>def sent():<br>        f = open(“web2.txt”, ‘r’)<br>        message = f.read()<br>        f.close()<br>        message =  getTitle(message)<br>        print(message)<br>        url=’<a href="http://101.71.29.5:10003/flag.php&#39;" target="_blank" rel="noopener">http://101.71.29.5:10003/flag.php&#39;</a><br>        data={<br>        ‘answer’: message<br>    }<br>        r=requests.post(url,data=data)<br>        print(r.text)<br>        print(“post success!”)<br>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>        get()<br>        sent()</p>
+<p>脚本也是大佬给的，小萌新费劲巴力才看懂，感谢大佬！</p>
+<p>运行几次，获得flag。</p>
+<p>crypto</p>
+<p>又是rsa！用hex 打开problem文件，得到n,e,c，发现e=3,可判断为低指数加密，发现c&lt;n,所以直接开三次方，但是精度不够，啊啊啊！精度！精度！精度！搜了一下发现gmpy2有提高精度的方法</p>
+<p><img src="C:\Users\SXY\AppData\Local\Temp\1532401148890.png" alt="53240114889"></p>
+<p><img src="C:\Users\SXY\AppData\Local\Temp\1532401178363.png" alt="53240117836"></p>
+<p>得出精确的数之后，放到hex中得到flag。</p>
+<p>misc1</p>
+<p>题目提到刷新，只能是F5啊，可是杂项和F5有什么关系啊，百度发现居然有F5隐写，直接利用工具</p>
+<p>F5-steganography</p>
+<p>1.下载地址：<a href="https://github.com/matthewgao/F5-steganography" target="_blank" rel="noopener">https://github.com/matthewgao/F5-steganography</a></p>
+<p>2.进入F5-steganography-master文件夹，在空白处 ctrl+shift+鼠标右键-&gt;在此处打开命令窗口 </p>
+<p>3.在cmd中输入命令：</p>
+<p>java Extract 图片的绝对路径/123456.jpg -p abc123</p>
+<p>4.查看output.txt，发现是乱码，放到hex中发现是Zip文件的格式，保存为Zip格式，解压，发现需要密码，首先考虑是不是伪加密，看504B0102后9到12位，发现不都是0，说明是伪加密，9到12位都变成0，解压，得到flag：flag{96efd0a2037d06f34199e921079778ee}</p>
 
     </div>
 </div>
@@ -194,12 +211,19 @@
     <ul>
         
         <li class="prev">
-            <a href="/2018/09/01/sql注入学习总结/">
+            <a href="/2018/09/01/RSA/">
                 <i class="cube-icon cube-prev" aria-hidden="true"></i>
                 
             </a>
         </li>
         
+        
+        <li class="next">
+            <a href="/2018/09/01/sql注入学习总结/">
+                
+                <i class="cube-icon cube-next" aria-hidden="true"></i>
+            </a>
+        </li>
         
     </ul>
 </div>
