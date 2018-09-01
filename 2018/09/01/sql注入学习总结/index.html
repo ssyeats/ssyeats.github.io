@@ -10,7 +10,7 @@
     
     
     
-    <title>ssyeats&#39;blog</title>
+    <title>SQL注入学习总结 | ssyeats&#39;blog</title>
     <!-- inject:style -->
     <link href="/css/style.css" rel="stylesheet" type="text/css">
     <!-- endinject -->
@@ -161,7 +161,7 @@
     <div class="cube-content">
         <div class="cube-left">
             <div class="cube-article">
-    <h1 class="title"></h1>
+    <h1 class="title">SQL注入学习总结</h1>
     
     <div class="cube-article-header">
         <div class="cube-article-date">
@@ -177,25 +177,20 @@
     
     <div class="cube-article-content cube-markdown">
         
-        <p>sql注入学习总结</p>
-<p>暑假报了学校的培训，还不要钱，感谢学校，感谢培训的老师！老师让用docker搭了靶机，自己在靶机上做了做试验，感觉还是挺有收获的，正好写篇文章总结总结。</p>
-<p>post型注入</p>
-<p>常规的测试一下，发现有注入漏洞，F12查看参数</p>
+        <p>暑假报了学校的培训，还不要钱，感谢学校，感谢培训的老师！老师让用docker搭了靶机，自己在靶机上做了做试验，感觉还是挺有收获的，正好写篇文章总结总结。</p>
+<h2 id="post型注入"><a href="#post型注入" class="headerlink" title="post型注入"></a>post型注入</h2><p>常规的测试一下，发现有注入漏洞，F12查看参数</p>
 <p><img src="C:\Users\SXY\AppData\Local\Temp\1532399754040.png" alt="53239975404"></p>
 <p>找到有两个显示位，通过命令查找库名，表明，获得数据</p>
 <p><img src="C:\Users\SXY\AppData\Local\Temp\1532399895946.png" alt="53239989594"></p>
 <p><img src="C:\Users\SXY\AppData\Local\Temp\1532399908330.png" alt="53239990833"></p>
-<p>GET型注入</p>
-<p>发现有id参数，尝试使用联合查询</p>
+<h2 id="GET型注入"><a href="#GET型注入" class="headerlink" title="GET型注入"></a>GET型注入</h2><p>发现有id参数，尝试使用联合查询</p>
 <p><img src="C:\Users\SXY\AppData\Local\Temp\1532400181276.png" alt="53240018127"></p>
 <p><img src="C:\Users\SXY\AppData\Local\Temp\1532400192121.png" alt="53240019212"></p>
 <p>注入成功。</p>
-<p>SEARCH型注入</p>
-<p>这个之前没见过，查了一下，发现应该是在数据库中查找东西，参数是keyword，尝试使用联合查询注入</p>
+<h2 id="SEARCH型注入"><a href="#SEARCH型注入" class="headerlink" title="SEARCH型注入"></a>SEARCH型注入</h2><p>这个之前没见过，查了一下，发现应该是在数据库中查找东西，参数是keyword，尝试使用联合查询注入</p>
 <p><img src="C:\Users\SXY\AppData\Local\Temp\1532400481195.png" alt="53240048119"></p>
 <p>成功！</p>
-<p>二次注入</p>
-<p>二次注入大概就是第一次注册的东西会存在数据库中，第二次只是调用库中的数据，尝试手注，失败了，上sqlmap吧，查看参数为my_id</p>
+<h2 id="二次注入"><a href="#二次注入" class="headerlink" title="二次注入"></a>二次注入</h2><p>二次注入大概就是第一次注册的东西会存在数据库中，第二次只是调用库中的数据，尝试手注，失败了，上sqlmap吧，查看参数为my_id</p>
 <p><img src="C:\Users\SXY\AppData\Local\Temp\1532400713950.png" alt="53240071395"></p>
 <p>这是前一周的成果，还有四周，我争取继续加油，嘿嘿！</p>
 
@@ -208,7 +203,7 @@
         <li class="prev">
             <a href="/2018/09/01/安恒7月赛部分题writeup/">
                 <i class="cube-icon cube-prev" aria-hidden="true"></i>
-                
+                安恒7月赛部分题writeup
             </a>
         </li>
         
@@ -304,7 +299,7 @@
                     <span>1</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/09/01/session学习总结/" title=""></a>
+                    <a href="/2018/09/01/session学习总结/" title="SESSION学习总结">SESSION学习总结</a>
                 </p>
             </div>
             
@@ -318,7 +313,7 @@
                     <span>2</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/09/01/RSA/" title=""></a>
+                    <a href="/2018/09/01/RSA/" title="RSA学习总结">RSA学习总结</a>
                 </p>
             </div>
         </li>
@@ -331,7 +326,7 @@
                     <span>3</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/09/01/安恒7月赛部分题writeup/" title=""></a>
+                    <a href="/2018/09/01/安恒7月赛部分题writeup/" title="安恒7月赛部分题writeup">安恒7月赛部分题writeup</a>
                 </p>
             </div>
         </li>
@@ -344,7 +339,7 @@
                     <span>4</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/09/01/sql注入学习总结/" title=""></a>
+                    <a href="/2018/09/01/sql注入学习总结/" title="SQL注入学习总结">SQL注入学习总结</a>
                 </p>
             </div>
         </li>

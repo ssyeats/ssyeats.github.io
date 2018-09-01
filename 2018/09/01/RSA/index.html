@@ -10,7 +10,7 @@
     
     
     
-    <title>ssyeats&#39;blog</title>
+    <title>RSA学习总结 | ssyeats&#39;blog</title>
     <!-- inject:style -->
     <link href="/css/style.css" rel="stylesheet" type="text/css">
     <!-- endinject -->
@@ -161,7 +161,7 @@
     <div class="cube-content">
         <div class="cube-left">
             <div class="cube-article">
-    <h1 class="title"></h1>
+    <h1 class="title">RSA学习总结</h1>
     
     <div class="cube-article-header">
         <div class="cube-article-date">
@@ -178,25 +178,25 @@
     <div class="cube-article-content cube-markdown">
         
         <p>最近看了几篇RSA加密算法的相关文章，CTF中常见的几种和RSA有关的题目大多都有套路，下面趁写文章学习总结一波：</p>
-<p>1.e较大：wiener攻击</p>
+<h2 id="1-e较大："><a href="#1-e较大：" class="headerlink" title="1.e较大："></a>1.e较大：</h2><p>wiener攻击</p>
 <p>解密代码链接<a href="https://codeload.github.com/pablocelayes/rsa-wiener-attack/zip/master" target="_blank" rel="noopener">https://codeload.github.com/pablocelayes/rsa-wiener-attack/zip/master</a></p>
 <p>理论基础链接<a href="https://blog.csdn.net/oumeixi_wjp/article/details/44747329" target="_blank" rel="noopener">https://blog.csdn.net/oumeixi_wjp/article/details/44747329</a></p>
 <p>这种攻击方法适合在知道e,n,a,m的情况下使用，e一般很大，这时通过a求出p,q，进而求d</p>
-<p>2.e较小：直接开方</p>
+<h2 id="2-e较小："><a href="#2-e较小：" class="headerlink" title="2.e较小："></a>2.e较小：</h2><p>直接开方</p>
 <p>相关链接<a href="https://blog.csdn.net/jeffreynnn/article/details/77169723" target="_blank" rel="noopener">https://blog.csdn.net/jeffreynnn/article/details/77169723</a></p>
 <p>有时数太大需要提高精度，安恒7月赛的writeup里有相关内容</p>
-<p>3.低加密指数广播攻击：相同低指数的e和多个相同的消息m</p>
+<h2 id="3-低加密指数广播攻击："><a href="#3-低加密指数广播攻击：" class="headerlink" title="3.低加密指数广播攻击："></a>3.低加密指数广播攻击：</h2><p>相同低指数的e和多个相同的消息m</p>
 <p>相关链接<a href="https://blog.csdn.net/xuqi7/article/details/75578414" target="_blank" rel="noopener">https://blog.csdn.net/xuqi7/article/details/75578414</a></p>
 <p>这种情况适合已知多组对应的c,n,同时已知m和e相同</p>
-<p>4.coppersmith定理攻击：只有部分高位的p或q</p>
+<h2 id="4-coppersmith定理攻击："><a href="#4-coppersmith定理攻击：" class="headerlink" title="4.coppersmith定理攻击："></a>4.coppersmith定理攻击：</h2><p>只有部分高位的p或q</p>
 <p>相关链接<a href="https://www.52pojie.cn/thread-653446-1-8.html" target="_blank" rel="noopener">https://www.52pojie.cn/thread-653446-1-8.html</a></p>
 <p>这种攻击方法适合用OpenSSL只能分解出p的一部分的情况，具体如链接</p>
-<p>5.共模攻击：相同n,相同m</p>
+<h2 id="5-共模攻击："><a href="#5-共模攻击：" class="headerlink" title="5.共模攻击："></a>5.共模攻击：</h2><p>相同n,相同m</p>
 <p><a href="https://www.cnblogs.com/gwind/p/8013154.html" target="_blank" rel="noopener">https://www.cnblogs.com/gwind/p/8013154.html</a></p>
 <p>这种攻击方法适合已知n,以及互相对应的多对c,e,利用e1<em>s1+e2</em>s2 = 1，(c1^s1*c2^s2)%n = m^%n 这两个公式求出m，具体方法见链接。</p>
-<p>6.相关链接<a href="https://mp.weixin.qq.com/s/Mkkl_lXLlKJ70VzNVRqOTA" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/Mkkl_lXLlKJ70VzNVRqOTA</a></p>
+<h2 id="6-已知dp的攻击"><a href="#6-已知dp的攻击" class="headerlink" title="6.已知dp的攻击:"></a>6.已知dp的攻击:</h2><p>相关链接<a href="https://mp.weixin.qq.com/s/Mkkl_lXLlKJ70VzNVRqOTA" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/Mkkl_lXLlKJ70VzNVRqOTA</a></p>
 <p>给定e,n,dp,c,dp≡d mod (p-1)经过复杂的推导可得x <em>(p-1)+1=dp</em>e,x∈(0,e),通过遍历x，可以求出p-1,进而求d。</p>
-<p>7.相关链接<a href="https://mp.weixin.qq.com/s/eNerFn4Aw3l7xeVnnDxKpg" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/eNerFn4Aw3l7xeVnnDxKpg</a></p>
+<h2 id="7-已知dp-dq-p-q的攻击"><a href="#7-已知dp-dq-p-q的攻击" class="headerlink" title="7.已知dp,dq,p,q的攻击:"></a>7.已知dp,dq,p,q的攻击:</h2><p>相关链接<a href="https://mp.weixin.qq.com/s/eNerFn4Aw3l7xeVnnDxKpg" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/eNerFn4Aw3l7xeVnnDxKpg</a></p>
 <p>给定dp,dq,p,q,c,通过推导可得m≡(((m2-m1)*p-1 mod q)p+m1)mod n ,那么m1,m2怎么求呢？还是经过推导可得m1=cdp mod p,m2=cdq mod q</p>
 
     </div>
@@ -208,14 +208,14 @@
         <li class="prev">
             <a href="/2018/09/01/session学习总结/">
                 <i class="cube-icon cube-prev" aria-hidden="true"></i>
-                
+                SESSION学习总结
             </a>
         </li>
         
         
         <li class="next">
             <a href="/2018/09/01/安恒7月赛部分题writeup/">
-                
+                安恒7月赛部分题writeup
                 <i class="cube-icon cube-next" aria-hidden="true"></i>
             </a>
         </li>
@@ -304,7 +304,7 @@
                     <span>1</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/09/01/session学习总结/" title=""></a>
+                    <a href="/2018/09/01/session学习总结/" title="SESSION学习总结">SESSION学习总结</a>
                 </p>
             </div>
             
@@ -318,7 +318,7 @@
                     <span>2</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/09/01/RSA/" title=""></a>
+                    <a href="/2018/09/01/RSA/" title="RSA学习总结">RSA学习总结</a>
                 </p>
             </div>
         </li>
@@ -331,7 +331,7 @@
                     <span>3</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/09/01/安恒7月赛部分题writeup/" title=""></a>
+                    <a href="/2018/09/01/安恒7月赛部分题writeup/" title="安恒7月赛部分题writeup">安恒7月赛部分题writeup</a>
                 </p>
             </div>
         </li>
@@ -344,7 +344,7 @@
                     <span>4</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/09/01/sql注入学习总结/" title=""></a>
+                    <a href="/2018/09/01/sql注入学习总结/" title="SQL注入学习总结">SQL注入学习总结</a>
                 </p>
             </div>
         </li>
