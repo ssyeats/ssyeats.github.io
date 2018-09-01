@@ -10,7 +10,7 @@
     
     
     
-    <title>SQL注入学习总结 | ssyeats&#39;blog</title>
+    <title>Tags: 知识总结 | ssyeats&#39;blog</title>
     <!-- inject:style -->
     <link href="/css/style.css" rel="stylesheet" type="text/css">
     <!-- endinject -->
@@ -160,69 +160,29 @@
     
     <div class="cube-content">
         <div class="cube-left">
-            <div class="cube-article">
-    <h1 class="title">SQL注入学习总结</h1>
+            <style>
+    @media(max-width: 768px) {
+        body {
+            background-color: #fff!important;
+        }
+    }
+</style>
+<div class="cube-archives">
     
-    <div class="cube-article-header">
-        <div class="cube-article-date">
-            <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-            <!-- moment.js对象 -->
-            2018-09-01
-        </div>
-        <div class="cube-article-tags">
-    <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
-    
-</div>
+    <div class="cube-archive" style="margin-top: 0;">
+        <h1 class="title">知识总结</h1>
+        
+        <ul class="posts">
+            
+            <li class="post">
+                <a href="/2018/09/01/RSA/">RSA学习总结</a>
+            </li>
+            
+        </ul>
+        
     </div>
     
-    <div class="cube-article-content cube-markdown">
-        
-        <p>暑假报了学校的培训，还不要钱，感谢学校，感谢培训的老师！老师让用docker搭了靶机，自己在靶机上做了做试验，感觉还是挺有收获的，正好写篇文章总结总结。</p>
-<h2 id="post型注入"><a href="#post型注入" class="headerlink" title="post型注入"></a>post型注入</h2><p>常规的测试一下，发现有注入漏洞，F12查看参数</p>
-<p><img src="C:\Users\SXY\AppData\Local\Temp\1532399754040.png" alt="53239975404"></p>
-<p>找到有两个显示位，通过命令查找库名，表明，获得数据</p>
-<p><img src="C:\Users\SXY\AppData\Local\Temp\1532399895946.png" alt="53239989594"></p>
-<p><img src="C:\Users\SXY\AppData\Local\Temp\1532399908330.png" alt="53239990833"></p>
-<h2 id="GET型注入"><a href="#GET型注入" class="headerlink" title="GET型注入"></a>GET型注入</h2><p>发现有id参数，尝试使用联合查询</p>
-<p><img src="C:\Users\SXY\AppData\Local\Temp\1532400181276.png" alt="53240018127"></p>
-<p><img src="C:\Users\SXY\AppData\Local\Temp\1532400192121.png" alt="53240019212"></p>
-<p>注入成功。</p>
-<h2 id="SEARCH型注入"><a href="#SEARCH型注入" class="headerlink" title="SEARCH型注入"></a>SEARCH型注入</h2><p>这个之前没见过，查了一下，发现应该是在数据库中查找东西，参数是keyword，尝试使用联合查询注入</p>
-<p><img src="C:\Users\SXY\AppData\Local\Temp\1532400481195.png" alt="53240048119"></p>
-<p>成功！</p>
-<h2 id="二次注入"><a href="#二次注入" class="headerlink" title="二次注入"></a>二次注入</h2><p>二次注入大概就是第一次注册的东西会存在数据库中，第二次只是调用库中的数据，尝试手注，失败了，上sqlmap吧，查看参数为my_id</p>
-<p><img src="C:\Users\SXY\AppData\Local\Temp\1532400713950.png" alt="53240071395"></p>
-<p>这是前一周的成果，还有四周，我争取继续加油，嘿嘿！</p>
-
-    </div>
 </div>
-
-<div class="cube-article-nav">
-    <ul>
-        
-        <li class="prev">
-            <a href="/2018/09/01/安恒7月赛部分题writeup/">
-                <i class="cube-icon cube-prev" aria-hidden="true"></i>
-                安恒7月赛部分题writeup
-            </a>
-        </li>
-        
-        
-        <li class="next">
-            <a href="/2018/08/01/hello-world/">
-                Hello World
-                <i class="cube-icon cube-next" aria-hidden="true"></i>
-            </a>
-        </li>
-        
-    </ul>
-</div>
-
-
-<!-- TODO 根据theme.comment的内容进行入口选择 -->
-
-
-
         </div>
         <div class="cube-right">
             
@@ -372,7 +332,7 @@
     <div class="cube-boxs">
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/知识总结/">#知识总结</a>
         </div>
         
