@@ -172,17 +172,15 @@
             <div class="cube-excerpt-tags">
                 <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
                 
+                <a href="/tags/学习总结/" class="cube-excerpt-tag-link">#学习总结</a>
+                
             </div>
         </div>
     </header>
     <article class="cube-excerpt-entry cube-markdown">
         
         
-           <p>参考文章：<a href="https://blog.csdn.net/u012554102/article/details/49454797" target="_blank" rel="noopener">https://blog.csdn.net/u012554102/article/details/49454797</a></p>
-<p>1.session在服务器端创建有两种情况，第一种是server端调用HttpServletRequest.getSession(true);第二种是访问jsp页面；第一种很容易理解，也是大家都比较熟悉的产生session的方式，关于第二种，看了一篇文章，很有感悟，jsp作为动态网页，本质是一个Servlet,编译后会与Server端交互，原因是jsp里有内置对象，这个对象就是和Server端交互的产物。</p>
-<p>2.Session Cookie(会话Cookie)与Server端的Session同时产生，但是不同时消失，在浏览器关闭时，Session Cookie被销毁，但是Server Session并没有销毁，Server Session 销毁的方式有三种，一：在最大无活动等待时间内没有响应或请求；二：调用invalidate()方法；三:服务器挂了。</p>
-<p>3.Session与Cookie基础知识：<a href="https://blog.csdn.net/gaoyong_stone/article/details/79524321" target="_blank" rel="noopener">https://blog.csdn.net/gaoyong_stone/article/details/79524321</a></p>
-
+           <p>session在服务器端创建有两种情况，第一种是server端调用HttpServletRequest.getSession(true);第二种是访问jsp页面</p>
         
     </article>
     <footer class="cube-excerpt-footer">
@@ -201,7 +199,7 @@
             <div class="cube-excerpt-tags">
                 <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
                 
-                <a href="/tags/知识总结/" class="cube-excerpt-tag-link">#知识总结</a>
+                <a href="/tags/学习收藏/" class="cube-excerpt-tag-link">#学习收藏</a>
                 
             </div>
         </div>
@@ -210,27 +208,6 @@
         
         
            <p>最近看了几篇RSA加密算法的相关文章，CTF中常见的几种和RSA有关的题目大多都有套路，下面趁写文章学习总结一波：</p>
-<h2 id="1-e较大："><a href="#1-e较大：" class="headerlink" title="1.e较大："></a>1.e较大：</h2><p>wiener攻击</p>
-<p>解密代码链接<a href="https://codeload.github.com/pablocelayes/rsa-wiener-attack/zip/master" target="_blank" rel="noopener">https://codeload.github.com/pablocelayes/rsa-wiener-attack/zip/master</a></p>
-<p>理论基础链接<a href="https://blog.csdn.net/oumeixi_wjp/article/details/44747329" target="_blank" rel="noopener">https://blog.csdn.net/oumeixi_wjp/article/details/44747329</a></p>
-<p>这种攻击方法适合在知道e,n,a,m的情况下使用，e一般很大，这时通过a求出p,q，进而求d</p>
-<h2 id="2-e较小："><a href="#2-e较小：" class="headerlink" title="2.e较小："></a>2.e较小：</h2><p>直接开方</p>
-<p>相关链接<a href="https://blog.csdn.net/jeffreynnn/article/details/77169723" target="_blank" rel="noopener">https://blog.csdn.net/jeffreynnn/article/details/77169723</a></p>
-<p>有时数太大需要提高精度，安恒7月赛的writeup里有相关内容</p>
-<h2 id="3-低加密指数广播攻击："><a href="#3-低加密指数广播攻击：" class="headerlink" title="3.低加密指数广播攻击："></a>3.低加密指数广播攻击：</h2><p>相同低指数的e和多个相同的消息m</p>
-<p>相关链接<a href="https://blog.csdn.net/xuqi7/article/details/75578414" target="_blank" rel="noopener">https://blog.csdn.net/xuqi7/article/details/75578414</a></p>
-<p>这种情况适合已知多组对应的c,n,同时已知m和e相同</p>
-<h2 id="4-coppersmith定理攻击："><a href="#4-coppersmith定理攻击：" class="headerlink" title="4.coppersmith定理攻击："></a>4.coppersmith定理攻击：</h2><p>只有部分高位的p或q</p>
-<p>相关链接<a href="https://www.52pojie.cn/thread-653446-1-8.html" target="_blank" rel="noopener">https://www.52pojie.cn/thread-653446-1-8.html</a></p>
-<p>这种攻击方法适合用OpenSSL只能分解出p的一部分的情况，具体如链接</p>
-<h2 id="5-共模攻击："><a href="#5-共模攻击：" class="headerlink" title="5.共模攻击："></a>5.共模攻击：</h2><p>相同n,相同m</p>
-<p><a href="https://www.cnblogs.com/gwind/p/8013154.html" target="_blank" rel="noopener">https://www.cnblogs.com/gwind/p/8013154.html</a></p>
-<p>这种攻击方法适合已知n,以及互相对应的多对c,e,利用e1<em>s1+e2</em>s2 = 1，(c1^s1*c2^s2)%n = m^%n 这两个公式求出m，具体方法见链接。</p>
-<h2 id="6-已知dp的攻击"><a href="#6-已知dp的攻击" class="headerlink" title="6.已知dp的攻击:"></a>6.已知dp的攻击:</h2><p>相关链接<a href="https://mp.weixin.qq.com/s/Mkkl_lXLlKJ70VzNVRqOTA" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/Mkkl_lXLlKJ70VzNVRqOTA</a></p>
-<p>给定e,n,dp,c,dp≡d mod (p-1)经过复杂的推导可得x <em>(p-1)+1=dp</em>e,x∈(0,e),通过遍历x，可以求出p-1,进而求d。</p>
-<h2 id="7-已知dp-dq-p-q的攻击"><a href="#7-已知dp-dq-p-q的攻击" class="headerlink" title="7.已知dp,dq,p,q的攻击:"></a>7.已知dp,dq,p,q的攻击:</h2><p>相关链接<a href="https://mp.weixin.qq.com/s/eNerFn4Aw3l7xeVnnDxKpg" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/eNerFn4Aw3l7xeVnnDxKpg</a></p>
-<p>给定dp,dq,p,q,c,通过推导可得m≡(((m2-m1)*p-1 mod q)p+m1)mod n ,那么m1,m2怎么求呢？还是经过推导可得m1=cdp mod p,m2=cdq mod q</p>
-
         
     </article>
     <footer class="cube-excerpt-footer">
@@ -249,34 +226,15 @@
             <div class="cube-excerpt-tags">
                 <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
                 
+                <a href="/tags/学习总结/" class="cube-excerpt-tag-link">#学习总结</a>
+                
             </div>
         </div>
     </header>
     <article class="cube-excerpt-entry cube-markdown">
         
         
-           <h2 id="web1-order"><a href="#web1-order" class="headerlink" title="web1  order"></a>web1  order</h2><p>这是一题关于order的注入，很简单的哦！同学们尝试下注入吧！</p>
-<p>正好最近在学sql注入，感觉题目还是挺友好的，用burpsuit抓包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">GET /?order=name&amp;button=submit HTTP/1.1</span><br><span class="line">Host: 101.71.29.5:10004</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:56.0) Gecko/20100101 Firefox/56.0</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Referer: http://101.71.29.5:10004/?order=id&amp;button=submit</span><br><span class="line">Cookie: Hm_lvt_d532469474a471feb9f849e2bf8fb4c1=1532150292; Hm_lpvt_d532469474a471feb9f849e2bf8fb4c1=1532150313</span><br><span class="line">Connection: keep-alive</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br></pre></td></tr></table></figure>
-<p>判断应该是GET型注入，直接上sqlmap吧，在name后加“*”，用sqlmap跑一下，得到结果</p>
-<p>flag{666_0rdorby_you_can}</p>
-<h2 id="web2-就这么直接"><a href="#web2-就这么直接" class="headerlink" title="web2 就这么直接"></a>web2 就这么直接</h2><p>源代码都给你了 你想想办法吧！</p>
-<p>既然提示说给了源码，那就找找源码吧，进入靶机，右击查看源代码，发现hint.php,访问它，看到源代码，看不懂！！！和大佬学习了一下，大概意思是输入key,用key计算resault，然后输出，但是这个输出由于srand函数会很快地变化，然后测试一下，随便输入一个数，然后看源代码，发现后边给了答案，这应该就是resault的值，尝试输回去，发现不对，说明srand函数使答案的有效时间很短，嗯，是时候上脚本了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">import re</span><br><span class="line">def get():</span><br><span class="line">        url=&apos;http://101.71.29.5:10003/flag.php&apos;</span><br><span class="line">        data=&#123;</span><br><span class="line">		&apos;answer&apos;:&apos;983f602ccd65e33d496fa6ebbdd7dad4&apos;</span><br><span class="line">	&#125;</span><br><span class="line">        r=requests.post(url,data=data)</span><br><span class="line">        f = open(&quot;web2.txt&quot;, &apos;w&apos;)</span><br><span class="line">        f.write(r.text)</span><br><span class="line">        f.close()</span><br><span class="line">        print(&quot;get success!&quot;)</span><br><span class="line">def getTitle(booktext):</span><br><span class="line">        return re.search( r&apos;&lt;!--(.+?)--&gt;&apos;, booktext, re.M|re.I).group(1)</span><br><span class="line">def sent():</span><br><span class="line">        f = open(&quot;web2.txt&quot;, &apos;r&apos;)</span><br><span class="line">        message = f.read()</span><br><span class="line">        f.close()</span><br><span class="line">        message =  getTitle(message)</span><br><span class="line">        print(message)</span><br><span class="line">        url=&apos;http://101.71.29.5:10003/flag.php&apos;</span><br><span class="line">        data=&#123;</span><br><span class="line">		&apos;answer&apos;: message</span><br><span class="line">	&#125;</span><br><span class="line">        r=requests.post(url,data=data)</span><br><span class="line">        print(r.text)</span><br><span class="line">        print(&quot;post success!&quot;)</span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">        get()</span><br><span class="line">        sent()</span><br></pre></td></tr></table></figure>
-<p>脚本也是大佬给的，小萌新费劲巴力才看懂，感谢大佬！</p>
-<p>运行几次，获得flag。</p>
-<h2 id="crypto"><a href="#crypto" class="headerlink" title="crypto"></a>crypto</h2><p>又是rsa！用hex 打开problem文件，得到n,e,c，发现e=3,可判断为低指数加密，发现c&lt;n,所以直接开三次方，但是精度不够，啊啊啊！精度！精度！精度！搜了一下发现gmpy2有提高精度的方法</p>
-<p><img src="C:\Users\SXY\AppData\Local\Temp\1532401148890.png" alt="53240114889"></p>
-<p><img src="C:\Users\SXY\AppData\Local\Temp\1532401178363.png" alt="53240117836"></p>
-<p>得出精确的数之后，放到hex中得到flag。</p>
-<h2 id="misc1"><a href="#misc1" class="headerlink" title="misc1"></a>misc1</h2><p>题目提到刷新，只能是F5啊，可是杂项和F5有什么关系啊，百度发现居然有F5隐写，直接利用工具</p>
-<p>F5-steganography</p>
-<p>1.下载地址：<a href="https://github.com/matthewgao/F5-steganography" target="_blank" rel="noopener">https://github.com/matthewgao/F5-steganography</a></p>
-<p>2.进入F5-steganography-master文件夹，在空白处 ctrl+shift+鼠标右键-&gt;在此处打开命令窗口 </p>
-<p>3.在cmd中输入命令：</p>
-<p>java Extract 图片的绝对路径/123456.jpg -p abc123</p>
-<p>4.查看output.txt，发现是乱码，放到hex中发现是Zip文件的格式，保存为Zip格式，解压，发现需要密码，首先考虑是不是伪加密，看504B0102后9到12位，发现不都是0，说明是伪加密，9到12位都变成0，解压，得到flag：flag{96efd0a2037d06f34199e921079778ee}</p>
-
+           <p>安恒7月赛相对较简单，本文章介绍了web1，web2，CRYPTO，MISC1的解题步骤</p>
         
     </article>
     <footer class="cube-excerpt-footer">
@@ -295,6 +253,8 @@
             <div class="cube-excerpt-tags">
                 <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
                 
+                <a href="/tags/学习总结/" class="cube-excerpt-tag-link">#学习总结</a>
+                
             </div>
         </div>
     </header>
@@ -302,22 +262,6 @@
         
         
            <p>暑假报了学校的培训，还不要钱，感谢学校，感谢培训的老师！老师让用docker搭了靶机，自己在靶机上做了做试验，感觉还是挺有收获的，正好写篇文章总结总结。</p>
-<h2 id="post型注入"><a href="#post型注入" class="headerlink" title="post型注入"></a>post型注入</h2><p>常规的测试一下，发现有注入漏洞，F12查看参数</p>
-<p><img src="C:\Users\SXY\AppData\Local\Temp\1532399754040.png" alt="53239975404"></p>
-<p>找到有两个显示位，通过命令查找库名，表明，获得数据</p>
-<p><img src="C:\Users\SXY\AppData\Local\Temp\1532399895946.png" alt="53239989594"></p>
-<p><img src="C:\Users\SXY\AppData\Local\Temp\1532399908330.png" alt="53239990833"></p>
-<h2 id="GET型注入"><a href="#GET型注入" class="headerlink" title="GET型注入"></a>GET型注入</h2><p>发现有id参数，尝试使用联合查询</p>
-<p><img src="C:\Users\SXY\AppData\Local\Temp\1532400181276.png" alt="53240018127"></p>
-<p><img src="C:\Users\SXY\AppData\Local\Temp\1532400192121.png" alt="53240019212"></p>
-<p>注入成功。</p>
-<h2 id="SEARCH型注入"><a href="#SEARCH型注入" class="headerlink" title="SEARCH型注入"></a>SEARCH型注入</h2><p>这个之前没见过，查了一下，发现应该是在数据库中查找东西，参数是keyword，尝试使用联合查询注入</p>
-<p><img src="C:\Users\SXY\AppData\Local\Temp\1532400481195.png" alt="53240048119"></p>
-<p>成功！</p>
-<h2 id="二次注入"><a href="#二次注入" class="headerlink" title="二次注入"></a>二次注入</h2><p>二次注入大概就是第一次注册的东西会存在数据库中，第二次只是调用库中的数据，尝试手注，失败了，上sqlmap吧，查看参数为my_id</p>
-<p><img src="C:\Users\SXY\AppData\Local\Temp\1532400713950.png" alt="53240071395"></p>
-<p>这是前一周的成果，还有四周，我争取继续加油，嘿嘿！</p>
-
         
     </article>
     <footer class="cube-excerpt-footer">
@@ -423,8 +367,8 @@
     
     <div class="count">
         <a class="count articles"><span>5</span>Article</a>
-        <a class="count tags"><span>1</span>Tags</a>
-        <a class="count categories"><span>0</span>Categories</a>
+        <a class="count tags"><span>2</span>Tags</a>
+        <a class="count categories"><span>3</span>Categories</a>
     </div>
 </div>
 
@@ -525,6 +469,30 @@
 
 
 
+<div class="cube-categories cube-sidebar" id="cube-categories">
+    <div class="title">
+        <a href="/categories">Categories</a>
+    </div>
+    <div class="cube-boxs">
+        
+        
+        <div class="cube-box ">
+            <a href="/categories/CRYPTO/">#CRYPTO</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/categories/writeup/">#writeup</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/categories/WEB/">#WEB</a>
+        </div>
+        
+    </div>
+</div>
+
 
 
 <div class="cube-tagcloud cube-sidebar" id="cube-tagcloud">
@@ -535,7 +503,12 @@
         
         
         <div class="cube-box ">
-            <a href="/tags/知识总结/">#知识总结</a>
+            <a href="/tags/学习收藏/">#学习收藏</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/学习总结/">#学习总结</a>
         </div>
         
     </div>
@@ -595,7 +568,7 @@
         <li>
             <!-- TODO change avatar.png to friend.png-->
             <img src="http://img.5am3.com/img/180901/Ba7fIa4k3i.png">
-            <a href="http://img.5am3.com/img/180802/GEk6LBBile.png" target="_blank">obolu</a>
+            <a href="http://www.obolu.top" target="_blank">obolu</a>
         </li>
         
         <li>
@@ -606,8 +579,8 @@
         
         <li>
             <!-- TODO change avatar.png to friend.png-->
-            <img src="/images/http:/img.5am3.com/img/180802/2h83AH7Kh3.jpg ">
-            <a href="https://aonosora.com/" target="_blank">咪西西の部落格</a>
+            <img src="http://img.5am3.com/img/180902/9G8BgBK7KL.png">
+            <a href="https://weibo.com/p/1005056042048313/home?from=page_100505&amp;mod=TAB&amp;pids=plc_main&amp;is_all=1#place" target="_blank">ssyeats&#39;weibo</a>
         </li>
         
     </ul>
